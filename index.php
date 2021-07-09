@@ -4,7 +4,7 @@ include 'header.php';
 <div id="main-content">
     <h2>All Records</h2>
     <?php
-    
+
     include 'config.php';
 
     $sql = "SELECT * FROM student JOIN studentclass WHERE student.sclass = studentclass.cid";
@@ -24,6 +24,10 @@ include 'header.php';
             <tbody>
                 <?php
                 while ($row = mysqli_fetch_assoc($result)) {
+                    // echo "<pre>";
+                    // print_r($row);
+                    // echo "</pre>";
+
                 ?>
                     <tr>
                         <td><?php echo $row['sid']; ?></td>
@@ -32,8 +36,8 @@ include 'header.php';
                         <td><?php echo $row['cname']; ?></td>
                         <td><?php echo $row['sphone']; ?></td>
                         <td>
-                            <a href='edit.php?id=<?php echo $row['sid']; ?>'>Edit</a>
-                            <a href='delete-inline.php?id=<?php echo $row['sid']; ?>'>Delete</a>
+                            <a href='action.php?edit=<?php echo $row['sid']; ?>'>Edit</a>
+                            <a href='delete-inline.delete?id=<?php echo $row['sid']; ?>'>Delete</a>
                         </td>
                     </tr>
                 <?php } ?>

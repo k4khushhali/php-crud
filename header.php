@@ -26,5 +26,8 @@
                 <li>
                     <a href="delete.php">Delete</a>
                 </li>
+                <li>
+                    <a href="action.php">Add / Edit</a>
+                </li>
             </ul>
         </div>

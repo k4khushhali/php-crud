@@ -168,3 +168,7 @@ body{
 #main-content .pagination li a:hover{
     background-color: #333;
 }
+
+.error {
+    color: #FF0000;
+}
