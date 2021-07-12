@@ -26,6 +26,16 @@
         $stuclass = $_POST['class'];
         $stuphone = $_POST['sphone'];
 
+        // Prevent SQL PHP injection
+        $stuname = stripcslashes($stuname);
+        $stuaddress = stripcslashes($stuaddress);
+        $stuclass = stripcslashes($stuclass);
+        $stuphone = stripcslashes($stuphone);
+        $stuname = mysqli_real_escape_string($conn, $stuname);
+        $stuaddress = mysqli_real_escape_string($conn, $stuaddress);
+        $stuclass = mysqli_real_escape_string($conn, $stuclass);
+        $stuphone = mysqli_real_escape_string($conn, $stuphone);
+
         $sql = "INSERT INTO `student`(`sname`, `saddress`, `sclass`, `sphone`) VALUES ('{$stuname}','{$stuaddress}','{$stuclass}','{$stuphone}')";
         mysqli_query($conn, $sql) or die("Query unsuccessfull !");
 
@@ -57,6 +67,16 @@
         $stuaddress = $_POST['saddress'];
         $stuclass = $_POST['sclass'];
         $stuphone = $_POST['sphone'];
+
+        // Prevent SQL PHP injection
+        $stuname = stripcslashes($stuname);
+        $stuaddress = stripcslashes($stuaddress);
+        $stuclass = stripcslashes($stuclass);
+        $stuphone = stripcslashes($stuphone);
+        $stuname = mysqli_real_escape_string($conn, $stuname);
+        $stuaddress = mysqli_real_escape_string($conn, $stuaddress);
+        $stuclass = mysqli_real_escape_string($conn, $stuclass);
+        $stuphone = mysqli_real_escape_string($conn, $stuphone);
 
         $sql = "UPDATE `student` SET `sname`='{$stuname}',`saddress`='{$stuaddress}',`sclass`='{$stuclass}',`sphone`='{$stuphone}' WHERE `sid` = {$stuid}";
         $result = mysqli_query($conn, $sql) or die("Query unsuccessfull !");
